@@ -2,10 +2,8 @@ package com.kairos.apiPrices.controller;
 
 import com.kairos.apiPrices.dto.PriceInDTO;
 import com.kairos.apiPrices.dto.PriceOutDTO;
-
 import com.kairos.apiPrices.mapper.PriceMapper;
 import com.kairos.apiPrices.model.Price;
-import com.kairos.apiPrices.repository.PriceRepository;
 import com.kairos.apiPrices.service.PriceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
@@ -31,20 +28,13 @@ public class PricesController {
 
 
     @ApiOperation(value = "Search prices")
-    @PostMapping(value="/prices/search")
-    public ResponseEntity<PriceOutDTO> search(@RequestBody PriceInDTO priceDTO) {
+    @PostMapping(value = "/prices/search")
+    public ResponseEntity<PriceOutDTO> search(@RequestBody final PriceInDTO priceDTO) {
         Optional<Price> pricesOpt = Optional
                 .ofNullable(priceService.findPriceByQuery(priceDTO))
                 .orElseThrow(RuntimeException::new);
         return ResponseEntity.ok().body(PriceMapper.priceOutToPrice(pricesOpt.get()));
     }
-
-
-
-
-
-
-
 
 
 }

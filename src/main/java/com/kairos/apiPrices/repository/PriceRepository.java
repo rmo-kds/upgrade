@@ -17,7 +17,7 @@ public interface PriceRepository extends JpaRepository<Price, Integer> {
             "and p.idProduct= :idProduct and p.idBrand= :idBrand and p.priority = (select max(p.priority) from Price p " +
             "where :effectiveDate>=p.startDate and :effectiveDate <= p.endDate and p.idProduct= :idProduct " +
             "and p.idBrand= :idBrand)")
-    public Optional<Price> findPricesByCustomQuery(
+    Optional<Price> findPricesByCustomQuery(
             @Param("effectiveDate") final LocalDateTime effectiveDate, @Param("idProduct") final Long idProduct,
             @Param("idBrand") final Long idBrand);
 }

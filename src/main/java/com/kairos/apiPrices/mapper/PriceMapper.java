@@ -15,8 +15,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class PriceMapper {
 
-
-	public static PriceOutDTO priceOutToPrice(Price price) {
+	public static PriceOutDTO priceOutToPrice(final Price price) {
 		return new PriceOutDTO()
 				.setIdBrand(price.getIdBrand())
 				.setIdProduct(price.getIdProduct())
@@ -25,6 +24,4 @@ public class PriceMapper {
 				.setEndDate(price.getEndDate())
 				.setPrice(price.getPrice());
 	}
-
-
 }
