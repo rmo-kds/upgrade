@@ -15,25 +15,25 @@ import java.util.Collections;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-	
-	@Bean
-    public Docket api() { 
+
+    @Bean
+    public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-          .select()
-          .apis(RequestHandlerSelectors.basePackage("com.kairos.apiPrices.controller"))
-          .paths(PathSelectors.any())
-          .build()
-          .apiInfo(metaData());
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.kairos.apiPrices.controller"))
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(metaData());
     }
-	
-	private ApiInfo metaData() {
+
+    private ApiInfo metaData() {
         return new ApiInfo(
                 "Kairos : Spring Boot REST API Zara Prices",
                 "Spring Boot REST API for Prices queries",
                 "1.0",
                 "Terms of service",
                 new Contact("Rubén Martín Olmedo", "https://www.kairosds.com/", "ruben.martin@kairosds.com"),
-               "Apache License Version 2.0",
+                "Apache License Version 2.0",
                 "https://www.apache.org/licenses/LICENSE-2.0", Collections.emptyList());
     }
 

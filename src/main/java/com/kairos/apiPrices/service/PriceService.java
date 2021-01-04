@@ -7,5 +7,5 @@ import java.util.Optional;
 
 
 public interface PriceService {
-    Optional<Price> findPriceByQuery(PriceInDTO priceDTO) ;
+    Optional<Price> findPriceByQuery(PriceInDTO priceDTO);
 }

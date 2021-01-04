@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Import;
 @Import(SwaggerConfig.class)
 public class ApiPricesApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ApiPricesApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ApiPricesApplication.class, args);
+    }
 
 }

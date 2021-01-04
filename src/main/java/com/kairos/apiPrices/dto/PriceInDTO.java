@@ -11,19 +11,19 @@ import lombok.experimental.Accessors;
 import java.time.LocalDateTime;
 
 
-@ApiModel(description = "Price In Data Transfer Object class")
-@Getter 
-@Setter 
+@ApiModel(description = "PriceIn Data Transfer Object class")
+@Getter
+@Setter
 @Accessors(chain = true)
 @NoArgsConstructor
 public class PriceInDTO {
 
-	@ApiModelProperty(notes = "idBrand")
-	private Long idBrand;
-	@ApiModelProperty(notes = "idProduct")
-	private Long idProduct;
-	@ApiModelProperty(notes = "priority")
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-	private LocalDateTime effectiveDate;
+    @ApiModelProperty(notes = "Brand id")
+    private Long idBrand;
+    @ApiModelProperty(notes = "Product id")
+    private Long idProduct;
+    @ApiModelProperty(notes = "Application date")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime effectiveDate;
 
 }

@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 @ControllerAdvice
 public class RestControllerExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(NoSuchElementException.class)
-    protected ResponseEntity<Object> handle(final RuntimeException rex,final WebRequest wr) {
+    protected ResponseEntity<Object> handle(final RuntimeException rex, final WebRequest wr) {
         return handleExceptionInternal(rex, "Resoruce not found", new HttpHeaders(), HttpStatus.NOT_FOUND, wr);
     }
 }
