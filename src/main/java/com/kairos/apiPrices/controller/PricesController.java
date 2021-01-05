@@ -35,9 +35,9 @@ public class PricesController {
             @ApiResponse(code = HttpServletResponse.SC_INTERNAL_SERVER_ERROR, message = "INTERNAL ERROR SERVER"),
             @ApiResponse(code = HttpServletResponse.SC_NOT_FOUND, message = "ELEMENT NOT FOUND")})
     @PostMapping(value = "/prices/search")
-    public ResponseEntity<PriceOutDTO> search(@RequestBody final PriceInDTO priceDTO) {
+    public ResponseEntity<PriceOutDTO> search(@RequestBody final PriceInDTO priceInDTO) {
         Optional<Price> pricesOpt = Optional
-                .ofNullable(priceService.findPriceByQuery(priceDTO))
+                .ofNullable(priceService.findPriceByQuery(priceInDTO))
                 .orElseThrow(RuntimeException::new);
         return ResponseEntity.ok().body(PriceMapper.priceToPriceOut(pricesOpt.get()));
     }
